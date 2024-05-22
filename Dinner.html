@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Program Time</title>
+</head>
+<body>
+    <h1>Please Book Your Dinner At Your Ease</h1>
+     <br>
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name">
+
+    <br> <br>
+
+   <h2> Pick Your Time</h2> 
+
+    <input type="radio" id="time1" name="time" value="5:00 pm ">
+    <label for="time1">5:00 pm</label><br>
+    <input type="radio" id="time2" name="time" value="6:00 pm ">
+    <label for="time2">6:00 pm</label><br>
+    <input type="radio" id="time3" name="time" value="7:00 pm">
+    <label for="time3">7:00 pm</label><br>
+    <input type="radio" id="time4" name="time" value="8:00 pm">
+    <label for="time3">8:00 pm</label>
+    <br><br>
+
+    <input type="checkbox" id="snack1" name="snacks" value="Rice and Curry">
+    <label for="snack1">Rice and Curry</label>
+    <input type="checkbox" id="snack2" name="snacks" value="Bread and Coffee">
+    <label for="snack2">Bread and Coffee</label>
+    <input type="checkbox" id="snack3" name="snacks" value="Salad Bowl">
+    <label for="snack3">Salad Bowl</label>
+
+    <br><br>
+
+    <button onclick="tellmydetails()">ClickMe</button>
+
+    <p id="result"></p>
+
+    <script>
+        function tellmydetails() {
+            var name = document.getElementById("name").value;
+            var time = document.querySelector('input[name="time"]:checked').value;
+            var snacks = document.querySelectorAll('input[name="snacks"]:checked');
+            
+            var selectedSnacks = [];
+            snacks.forEach((snack) => {
+                selectedSnacks.push(snack.value);
+            });
+
+            var meal = "";
+            if (time === "10:00 am") {
+                meal = "Bread and Coffee";
+            } else if (time === "3:00 pm") {
+                meal = "Salad Bowl";
+            } else if (time === "10:00 pm") {
+                meal = "Rice and Curry";
+            }
+
+            var result = name + " will have " + meal + " as a meal tonight.";
+
+            document.getElementById("result").innerText = result;
+        }
+    </script>
+</body>
+</html>
